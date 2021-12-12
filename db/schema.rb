@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_134101) do
+ActiveRecord::Schema.define(version: 2021_12_12_140802) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(version: 2021_12_12_134101) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "icon"
+    t.string "location", null: false
+    t.integer "temp"
+    t.integer "temp_min"
+    t.integer "temp_max"
+    t.integer "pressure"
+    t.integer "humidity"
+    t.integer "wind_speed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

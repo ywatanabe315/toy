@@ -2,3 +2,6 @@ h1= 'features'
 - @features.each do |feature|
   = @feature.name
   = @feature.desc
+
+= Weather.last.name
+img src="http://openweathermap.org/img/wn/#{Weather.last.icon}@2x.png"
