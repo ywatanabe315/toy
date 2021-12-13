@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_140802) do
+ActiveRecord::Schema.define(version: 2021_12_13_145410) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2021_12_12_140802) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -48,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_12_12_140802) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "organization_id"
+    t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
   create_table "weathers", force: :cascade do |t|
@@ -66,4 +76,5 @@ ActiveRecord::Schema.define(version: 2021_12_12_140802) do
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "users", "organizations"
 end
