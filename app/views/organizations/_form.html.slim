@@ -1,0 +1,13 @@
+= form_with model: @form, url: organizations_path, local: true do |f|
+  = f.label 'name'
+  = f.text_field :name
+  = f.label 'address'
+  = f.text_field :address
+  = f.label 'url'
+  = f.text_field :url
+  = f.label 'users_email'
+  = f.text_area :user_emails
+  = f.submit
+
+- if @form.errors.any?
+  = @form.errors.full_messages

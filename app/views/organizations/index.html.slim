@@ -1,0 +1,5 @@
+= link_to 'new', new_organization_path
+- @organizations.each do |organization|
+  = link_to organization.name, edit_organization_path(organization)
+  = organization.address
+  = organization.url
